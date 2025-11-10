@@ -1,3 +1,4 @@
+import React from "react";
 import { Atom } from "react-loading-indicators";
 const Loading = () => {
   return (

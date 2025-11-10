@@ -1,7 +1,9 @@
-const FirstPage = ({ setEntered }) => {
+import React from "react";
+
+const FirstPage = ({ onEnter }) => {
   return (
     <div
-      onClick={() => setEntered(false)}
+      onClick={onEnter}
       style={{
         height: "100vh",
         width: "100%",

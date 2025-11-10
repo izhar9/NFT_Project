@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import NavBar from "./NavBar";
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -22,28 +23,31 @@ const Home = () => {
     };
   }, []);
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        overflow: "hidden",
-      }}
-    >
-      <video
-      ref={videoRef}
-        autoPlay
-        loop
-        playsInline
+    <>
+        <NavBar />
+        <div
         style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
+            height: "100vh",
+            width: "100vw",
+            overflow: "hidden",
         }}
-      >
-        <source src="/videos/main.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+        >
+        <video
+        ref={videoRef}
+            autoPlay
+            loop
+            playsInline
+            style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            }}
+        >
+            <source src="/videos/main.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        </div>
+    </>
   );
 };
 
