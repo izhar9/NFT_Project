@@ -13,12 +13,15 @@ const NavBar = () => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand
-          href="#home"
-          style={{ color: "#fff", fontWeight: "bold" }}
-        >
-          React-Bootstrap
-        </Navbar.Brand>
+        <Navbar.Brand href="#home">
+            <img
+              src="/img/logo.png"
+              width="100"
+              height="30"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -28,7 +31,7 @@ const NavBar = () => {
           <Nav>
             <Nav.Link as={Link} to='/' style={{ color: "#fff", fontWeight: "bold" }}>Home</Nav.Link>
             <Nav.Link style={{ color: "#fff", fontWeight: "bold" }}>RoadMap</Nav.Link>
-            <Nav.Link style={{ color: "#fff", fontWeight: "bold" }}>Rev Share</Nav.Link>
+            <Nav.Link as={Link} to='/revenueShare' style={{ color: "#fff", fontWeight: "bold" }}>Revenue Share</Nav.Link>
             <Nav.Link style={{ color: "#fff", fontWeight: "bold" }}>Community</Nav.Link>
           </Nav>
         </Navbar.Collapse>

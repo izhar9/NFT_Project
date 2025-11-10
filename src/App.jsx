@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar";
 import Loading from "./Components/Loading";
 import FirstPage from "./Components/FirstPage";
 import VideoIntro from "./Components/VideoIntro";
+import RevenueShare from "./Components/RevenueShare";
 import Home from "./Components/Home";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/revenueShare" element={<RevenueShare />} />
       </Routes>
     </BrowserRouter>
   );
