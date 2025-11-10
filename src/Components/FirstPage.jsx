@@ -22,7 +22,7 @@ const FirstPage = ({ onEnter }) => {
         textShadow: "0 0 10px rgba(0,0,0,0.7)",
       }}
     >
-      <p
+      {/* <p
         style={{
           fontSize: "2rem",
           opacity: 0.9,
@@ -34,7 +34,7 @@ const FirstPage = ({ onEnter }) => {
         }}
       >
         Tap to Enter
-      </p>
+      </p> */}
     </div>
   );
 };

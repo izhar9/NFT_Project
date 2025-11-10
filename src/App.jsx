@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Loading from "./Components/Loading";
 import FirstPage from "./Components/FirstPage";
@@ -12,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [showFirstPage, setShowFirstPage] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,15 +22,18 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleOnEnter = () =>{
+    setShowFirstPage(false);
+    setShowVideo(true);
+    navigate("/")
+  }
+
   if (loading) return <Loading />;
 
    if (showFirstPage)
     return (
       <FirstPage
-        onEnter={() => {
-          setShowFirstPage(false);
-          setShowVideo(true);
-        }}
+        onEnter={handleOnEnter}
       />
     );
 
@@ -43,12 +47,12 @@ function App() {
     );
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/revenueShare" element={<RevenueShare />} />
       </Routes>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 }
 

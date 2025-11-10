@@ -9,7 +9,7 @@ const RevenueShare = () => {
       <div
         style={{
           position: "relative",
-          minHeight: "100vh",
+          height: "calc(100vh - 70px)",
           backgroundImage: "url('/img/4th.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -17,8 +17,8 @@ const RevenueShare = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: "90px", // offset for navbar
-          paddingBottom: "40px",
+          fontFamily: "'Bebas Neue', sans-serif",
+        //   overflow: "hidden", // prevents accidental scroll
         }}
       >
         <div
@@ -27,18 +27,18 @@ const RevenueShare = () => {
             padding: "25px",
             borderRadius: "12px",
             maxWidth: "900px",
-            margin: "0 15px",
+            marginTop: "70px", // navbar offset only
           }}
         >
           <h1
-            className="mb-4 funky-title text-uppercase"
+            className="mb-4 text-uppercase"
             style={{
-              background: "linear-gradient(90deg, #ff00cc, #00ffff)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              fontFamily: "'Bebas Neue', sans-serif",
+                color: "#00ffff",
+            //   WebkitBackgroundClip: "text",
+            //   WebkitTextFillColor: "transparent",
               letterSpacing: "2px",
               fontSize: "clamp(1.8rem, 4vw, 3rem)",
+              textAlign: "center",
             }}
           >
             Revenue Distribution — Built on Fairness & Transparency
@@ -57,9 +57,9 @@ const RevenueShare = () => {
               style={{
                 fontSize: "clamp(1rem, 2vw, 1.2rem)",
                 color: "#f1f1f1",
-                lineHeight: "1.7",
-                marginBottom: "1.2rem",
-                letterSpacing: "0.4px",
+                lineHeight: "1.6",
+                marginBottom: "1rem",
+                letterSpacing: "0.3px",
                 textAlign: "justify",
               }}
             />
