@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import NavBar from "./NavBar";
 import { Container } from "react-bootstrap";
-import './Home.css'
+import "./Home.css";
 
 const Home = () => {
   const videoRef = useRef(null);
   const textRef = useRef(null);
   const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [typingDone, setTypingDone] = useState(false);
 
-  const fullText = `
-Far away, on the edge of a dense forest, there lay a forgotten village — a place so cursed that people hesitated even to speak its name.
+  const fullText = `Far away, on the edge of a dense forest, there lay a forgotten village — a place so cursed that people hesitated even to speak its name.
 The land was barren, the water had dried up, and every day, villagers died of hunger.
 The elders used to say, “Our poverty is a curse. And every curse demands a sacrifice.”
 
@@ -39,26 +40,25 @@ but it was never free again, either.
 
   // Typing effect
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayedText((prev) => prev + fullText[index]);
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 35);
-    return () => clearInterval(interval);
-  }, []);
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + fullText[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 35);
+      return () => clearTimeout(timeout);
+    } else {
+      setTypingDone(true);
+    }
+  }, [currentIndex, fullText]);
 
-  // Auto scroll down when new text appears
+  // Auto-scroll while typing
   useEffect(() => {
     if (textRef.current) {
       textRef.current.scrollTop = textRef.current.scrollHeight;
     }
   }, [displayedText]);
 
-  // Optional video time reset
+  // Optional: restart video near end
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -80,7 +80,6 @@ but it was never free again, either.
           ref={videoRef}
           autoPlay
           loop
-          // muted
           playsInline
           className="w-100 h-100 position-absolute top-0 start-0"
           style={{ objectFit: "cover" }}
@@ -106,7 +105,7 @@ but it was never free again, either.
           }}
         >
           {displayedText}
-          <span className="typing-cursor">|</span>
+          {!typingDone && <span className="typing-cursor">|</span>}
         </div>
       </div>
     </Container>
