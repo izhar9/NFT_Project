@@ -7,6 +7,7 @@ import FirstPage from "./Components/FirstPage";
 import VideoIntro from "./Components/VideoIntro";
 import RevenueShare from "./Components/RevenueShare";
 import Home from "./Components/Home";
+import RoadMap from "./Components/RoadMap";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -51,6 +52,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/revenueShare" element={<RevenueShare />} />
+        <Route path="/roadMap" element={<RoadMap />} />
       </Routes>
     // </BrowserRouter>
   );
