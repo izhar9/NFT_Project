@@ -1,7 +1,7 @@
 
 .typing-cursor {
   display: inline-block;
-  animation: blink 0.8s infinite;
+  animation: blink 1s infinite;
   color: #fff;
 }
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import NavBar from "./NavBar";
-import { Container } from "react-bootstrap";
 import "./Home.css";
 
 const Home = () => {
@@ -72,44 +71,65 @@ but it was never free again, either.
   }, []);
 
   return (
-    <Container fluid className="p-0">
-      <NavBar />
-      <div className="position-relative w-100 vh-100 overflow-hidden">
-        {/* Background Video */}
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-100 h-100 position-absolute top-0 start-0"
-          style={{ objectFit: "cover" }}
-        >
-          <source src="/videos/main.mp4" type="video/mp4" />
-        </video>
-
-        {/* Typing Text Overlay */}
-        <div
-          ref={textRef}
-          className="position-absolute top-50 start-50 translate-middle text-light p-4"
-          style={{
-            width: "70%",
-            maxHeight: "80%",
-            overflowY: "auto",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            borderRadius: "10px",
-            fontFamily: "serif",
-            fontSize: "1.2rem",
-            lineHeight: "1.8rem",
-            whiteSpace: "pre-wrap",
-            scrollbarWidth: "thin",
-          }}
-        >
-          {displayedText}
-          {!typingDone && <span className="typing-cursor">|</span>}
-        </div>
+    <div
+      style={{
+        height: "100vh",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      {/* Navbar */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          zIndex: 10,
+        }}
+      >
+        <NavBar />
       </div>
-    </Container>
+
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{ objectFit: "cover", zIndex: 0 }}
+      >
+        <source src="/videos/main.mp4" type="video/mp4" />
+      </video>
+
+      {/* Typing Text Overlay */}
+      <div
+        ref={textRef}
+        className="position-absolute text-light p-4"
+        style={{
+          top: "55%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "90%",
+          maxHeight: "80%",
+          overflowY: "auto",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          borderRadius: "10px",
+          fontFamily: "serif",
+          fontSize: "1.2rem",
+          lineHeight: "1.8rem",
+          whiteSpace: "pre-wrap",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          zIndex: 5,
+        }}
+      >
+        {displayedText}
+        {!typingDone && <span className="typing-cursor">|</span>}
+      </div>
+    </div>
   );
 };
 
