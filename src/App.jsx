@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import NavBar from "./Components/NavBar";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Loading from "./Components/Loading";
 import FirstPage from "./Components/FirstPage";
 import VideoIntro from "./Components/VideoIntro";

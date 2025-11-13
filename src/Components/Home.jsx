@@ -80,11 +80,12 @@ but it was never free again, either.
           ref={videoRef}
           autoPlay
           loop
+          muted
           playsInline
           className="w-100 h-100 position-absolute top-0 start-0"
           style={{ objectFit: "cover" }}
         >
-          <source src="/videos/Animilian-1.mov" type="video/mp4" />
+          <source src="/videos/main.mp4" type="video/mp4" />
         </video>
 
         {/* Typing Text Overlay */}
