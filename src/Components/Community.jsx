@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import NavBar from "./NavBar";
 
 const Community = () => {
@@ -19,21 +19,48 @@ const Community = () => {
   ];
 
   return (
-    <Container fluid className="p-0">
-      <NavBar />
-
+    <div
+      style={{
+        height: "100vh",
+        overflow: "hidden",
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Navbar */}
       <div
-        className="min-vh-100 d-flex justify-content-center align-items-center text-light"
+        style={{
+          flexShrink: 0,
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        <NavBar />
+      </div>
+
+      {/* Background + Content */}
+      <div
+        className="flex-grow-1 d-flex justify-content-center align-items-center text-light"
         style={{
           backgroundImage: "url('/img/community.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           fontFamily: "'Bebas Neue', sans-serif",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
         <Card
           className="bg-dark bg-opacity-75 p-4 rounded-4 shadow-lg m-3"
-          style={{ maxWidth: "900px" }}
+          style={{
+            maxWidth: "900px",
+            width: "90%",
+            maxHeight: "80%",
+            overflowY: "auto",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
         >
           <Card.Title
             as="h1"
@@ -81,7 +108,7 @@ const Community = () => {
           ))}
         </Card>
       </div>
-    </Container>
+    </div>
   );
 };
 
