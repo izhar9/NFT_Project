@@ -8,6 +8,7 @@ import RevenueShare from "./Components/RevenueShare";
 import Home from "./Components/Home";
 import RoadMap from "./Components/RoadMap";
 import Community from "./Components/Community";
+import PreloadAssets from "./PreloadAssets";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -48,14 +49,15 @@ function App() {
     );
 
   return (
-    // <BrowserRouter>
+    <>
+      <PreloadAssets />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/revenueShare" element={<RevenueShare />} />
         <Route path="/roadMap" element={<RoadMap />} />
         <Route path="/community" element={<Community />} />
       </Routes>
-    // </BrowserRouter>
+    </>
   );
 }
 
