@@ -8,6 +8,7 @@ import RevenueShare from "./Components/RevenueShare";
 import Home from "./Components/Home";
 import RoadMap from "./Components/RoadMap";
 import Community from "./Components/Community";
+import InfoForm from "./Components/InfoForm";
 import PreloadAssets from "./PreloadAssets";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/revenueShare" element={<RevenueShare />} />
         <Route path="/roadMap" element={<RoadMap />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/contact" element={<InfoForm />} />
       </Routes>
     </>
   );

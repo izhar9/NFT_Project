@@ -35,6 +35,7 @@ const NavBar = () => {
             <Nav.Link as={Link} to='/roadMap' style={{ color: "#fff", fontWeight: "bold" }}>RoadMap</Nav.Link>
             <Nav.Link as={Link} to='/revenueShare' style={{ color: "#fff", fontWeight: "bold" }}>Revenue Share</Nav.Link>
             <Nav.Link as={Link} to='/community' style={{ color: "#fff", fontWeight: "bold" }}>Community</Nav.Link>
+            <Nav.Link as={Link} to='/contact' style={{ color: "#fff", fontWeight: "bold" }}>Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
