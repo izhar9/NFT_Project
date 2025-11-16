@@ -10,6 +10,8 @@ import RoadMap from "./Components/RoadMap";
 import Community from "./Components/Community";
 import InfoForm from "./Components/InfoForm";
 import PreloadAssets from "./PreloadAssets";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -51,6 +53,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <PreloadAssets />
       <Routes>
         <Route path="/" element={<Home />} />

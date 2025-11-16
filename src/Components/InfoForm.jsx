@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import { Card } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const InfoForm = () => {
     const [name, setName] = useState("")
@@ -22,8 +23,14 @@ const InfoForm = () => {
       setContact("")
       setAge("")
       setLoading(false)
-      console.log(response);
+      toast.success("Submission completed successfully.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        console.log(response);
     } catch (error) {
+        setLoading(false)
+        toast.error("Failed to submit data.");
       console.error(error);
     }
   };
